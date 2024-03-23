@@ -1,0 +1,183 @@
+@font-face {
+    font-family: Figtree;
+    src: url(../fonts/Figtree-VariableFont_wght.ttf);
+}
+
+
+*:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+    all: unset;
+    display: revert;
+  }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-yellow: #F4D04E;
+    --clr-grey: #7F7F7F;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: var(--clr-yellow);
+
+    & .blog-review-card {
+        width: 24rem;
+        padding: 24px;
+        border: 1px solid #000;
+        border-radius: 20px;
+        box-shadow: 8px 8px 0 0 #000;
+        background-color: #fff;
+    
+    }
+
+    & .attribution {
+        position: absolute;
+        bottom: 0;
+    }
+}
+
+@media screen and (min-width: 375px) and ( max-width: 450px),
+       screen and (max-width: 375px) {
+    .hero {
+
+        & .blog-review-card {
+            width: 20.5rem;
+
+            & .blog-review-card__content {
+                & h3 {
+                    font-size: 1.25rem;
+                }
+
+                & :is(button,p:first-of-type) {
+                    font-size: 0.75rem;
+                }
+
+                & p:not(:first-child) {
+                    font-size: 0.875rem;
+                }
+            }
+
+        }
+
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .hero {
+        
+        & .blog-review-card {
+            width: 17.5rem;
+
+            
+        }
+
+    }
+}
+
+.blog-review-card {
+
+    transform: translateX(-8px);
+    transition: transform 200ms, box-shadow 200ms;
+
+    &:hover {
+        transform: translate(-4px, -4px);
+        cursor: pointer;
+        box-shadow: 16px 16px 0 #000;
+    }
+
+    &:hover :is(.blog-review-card__content) h3 {
+        color: var(--clr-yellow);
+    }
+
+    font-family: Figtree;
+
+    & > *:where(:not(:first-child)) {
+        margin-top: 24px;
+    }
+
+    & .blog-review-card__img {
+        & svg {
+            width: 100%;
+            border-radius: 10px;
+            height: auto;
+        }
+    }
+
+    & .blog-review-card__content {
+
+        & > *:where(:not(:first-child)) {
+
+            margin-top: 12px;
+
+        }
+
+        & button {
+            background-color: var(--clr-yellow);
+            font-weight: 700;
+            padding: 4px 8px;
+            font-size: 0.875rem;
+            transition: color 300ms, background-color 300ms;
+        }
+
+
+        & p:first-of-type {
+            font-size: 0.875rem;
+        }
+
+        & h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        & p:not(:first-of-type) {
+            color: var(--clr-grey);
+        }
+    }
+
+    & .blog-review-card__user { 
+
+        display: flex;
+        align-items: center;
+
+        & * {
+            display: inline-block;
+        }
+
+        & *:where(:not(:first-child)) {
+            margin-left: 12px;
+        }
+
+        & img {
+            width: 32px;
+            height: 32px;
+        }
+
+        & p {
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+    }
+
+}
+
+
