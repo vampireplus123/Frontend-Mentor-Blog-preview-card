@@ -41,7 +41,7 @@ body {
 
     & .blog-review-card {
         width: 24rem;
-        height:36.625rem ;
+        height: 32.625rem ;
         padding: 24px;
         border: 1px solid #000;
         border-radius: 20px;
@@ -54,6 +54,84 @@ body {
         position: absolute;
         bottom: 0;
     }
+}
+
+.blog-review-card {
+
+    font-family: Figtree;
+    transform: translateX(-8px);
+    transition: transform 200ms, box-shadow 200ms;
+
+    &:hover {
+        transform: translate(-4px, -4px);
+        cursor: pointer;
+        box-shadow: 16px 16px 0 #000;
+    }
+
+    &:hover .blog-review-card__content h3 {
+        color: var(--clr-yellow);
+    }
+
+
+    & > *:where(:not(:first-child)) {
+        margin-top: 24px;
+    }
+
+    & .blog-review-card__img {        
+        & svg {
+            border-radius: 10px;
+            width: 100%;
+        }
+    }
+
+    & .blog-review-card__content {
+
+        & > *:where(:not(:first-child)) {
+            margin-top: 12px;
+        }
+
+        & button {
+            font-weight: 700;
+            font-size: 0.875rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: var(--clr-yellow);
+        }
+
+
+        & p:first-of-type {
+            font-size: 0.875rem;
+        }
+
+        & h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        & p:last-child {
+            color: var(--clr-grey);
+        }
+    }
+
+    & .blog-review-card__user { 
+
+        > * {
+            vertical-align: middle;
+        }
+
+        & img {
+            width: 32px;
+            height: 32px;
+            margin-right: 12px;
+        }
+
+         span {
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+    }
+
 }
 
 @media screen and (min-width: 375px) and ( max-width: 450px),
@@ -93,93 +171,3 @@ body {
 
     }
 }
-
-.blog-review-card {
-
-    transform: translateX(-8px);
-    transition: transform 200ms, box-shadow 200ms;
-
-    &:hover {
-        transform: translate(-4px, -4px);
-        cursor: pointer;
-        box-shadow: 16px 16px 0 #000;
-    }
-
-    &:hover :is(.blog-review-card__content) h3 {
-        color: var(--clr-yellow);
-    }
-
-    font-family: Figtree;
-
-    & > *:where(:not(:first-child)) {
-        margin-top: 24px;
-    }
-
-    & .blog-review-card__img {
-        & svg {
-            width: 100%;
-            border-radius: 10px;
-            height: 200px;
-            object-fit: cover;
-        }
-    }
-
-    & .blog-review-card__content {
-
-        & > *:where(:not(:first-child)) {
-
-            margin-top: 12px;
-
-        }
-
-        & button {
-            background-color: var(--clr-yellow);
-            font-weight: 700;
-            padding: 4px 8px;
-            font-size: 0.875rem;
-            transition: color 300ms, background-color 300ms;
-        }
-
-
-        & p:first-of-type {
-            font-size: 0.875rem;
-        }
-
-        & h3 {
-            font-size: 1.5rem;
-            font-weight: 800;
-        }
-
-        & p:not(:first-of-type) {
-            color: var(--clr-grey);
-        }
-    }
-
-    & .blog-review-card__user { 
-
-        display: flex;
-        align-items: center;
-
-        & * {
-            display: inline-block;
-        }
-
-        & *:where(:not(:first-child)) {
-            margin-left: 12px;
-        }
-
-        & img {
-            width: 32px;
-            height: 32px;
-        }
-
-        & p {
-            font-size: 0.875rem;
-            font-weight: 700;
-        }
-
-    }
-
-}
-
-
